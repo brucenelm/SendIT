@@ -3,6 +3,8 @@ body{
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+	color:white;
+	margin: auto;
 }
 
 .login-page{
@@ -34,7 +36,7 @@ body{
 	
 }
 
-.form button{
+.form button {
 	font-family: "Roboto", "sans-serif";
 	text-transform: uppercase;
 	outline: 0;
@@ -47,6 +49,51 @@ body{
 	cursor: pointer;
 
 }
+
+.form1 button{
+	font-family: "Roboto", "sans-serif";
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 15%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.form2 button{
+	font-family: "Roboto", "sans-serif";
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: auto;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.form1 input{
+	font-family: "Roboto", "sans-serif";
+	outline: 1;
+	background: #f2f2f2;
+	width: 15%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+/*
+table {
+    border-collapse: collapse;
+    border: none;
+}*/
+
 
 .form button:hover,.form button:active{
 	background: #43A047
@@ -67,4 +114,79 @@ body{
 .form .register-form{
 	display: none;
 
+}
+
+table {
+    font-family: arial, sans-serif;
+    /*border-collapse: collapse;*/
+    border: none;
+    width: 90%;
+    color: #FFFFFF;}
+
+td, th {
+    /*border: 1px solid #dddddd;*/
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+
+.menudiv{
+	text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color:  #0349df ;
+}
+
+
+ul {
+	margin: 0px;
+	padding:0px;
+	list-style: none;
+	float: center;
+}
+
+ul li {
+	float: left;
+	width: 200px;
+	height: 40px;
+	background-color: black;
+	opacity: .7;
+	line-height: 40px;
+	text-align: center;
+	font-size:20px;
+	margin-right: 2px
+}
+
+ul li a {
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+ul li a:hover{
+	background-color: green;
+}
+
+ul li ul li{
+	display: none;
+}
+
+ul li:hover ul li{
+	display: block;
+}
+
+.column{
+	float: left;
+	width: 50%;
+	padding: 10px
+}
+
+.row:after{
+	display: table;
+	clear: both;
+}
+
+h2{
+	text-indent: 30%
 }
