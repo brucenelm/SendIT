@@ -23,6 +23,11 @@ def getDelivereParcel(version, parcelid):
 		return jsonify({'error':'Parcel not found'}), 404
 	return jsonify({'data':parcel})
 
+#fetch all parcel delivery orders by a specific user
+@app.route('/<version>/users/<userid>/parcels', methods = ['GET'])
+def getDeliveryParcelPerUser(version, userid):
+	parcel = [parcels for parcels in list_of_all_deliveries if parcels['userid']==userid]
+	return jsonify({'data':parcel[0]})
 
 
 
