@@ -39,6 +39,14 @@ def cancelDelivereParcel(version, parcelid):
 
 	return jsonify({'data':list_of_all_deliveries})
 
+#Create a parcel delivery order
+@app.route('/<version>/parcels', methods = ['POST'])
+def addDelivereParcel(version):
+	pid = len(list_of_all_deliveries)
+	parcel = {'userid': request.json['userid'],'item_name': request.json['name'],'parcelid': pid + 1, 'canceled': 0}
+	list_of_all_deliveries.append(parcel)
+
+	return jsonify({'data':parcel}), 201
 
 
 if __name__ == "__main__":

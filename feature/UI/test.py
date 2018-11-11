@@ -42,6 +42,16 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':1})
 
+	def test_create_one_parcel(self):
+		#response = self.client.post('v1/parcels')
+		response = self.client.post('v1/parcels',
+                                        content_type='application/json',
+                                        data=json.dumps(dict(userid='bob',name='Books')))
+
+		data = json.loads(response.data.decode())
+		self.assertEqual(response.status_code, 201)
+		self.assertEqual(data['data'],{'userid':'bob','parcelid':4,'item_name':'Books','canceled':0})
+
 	
 
 if __name__ == '__main__':
