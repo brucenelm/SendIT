@@ -9,6 +9,7 @@ class TestMainFlask(TestCase):
 	def create_app(self):
 		return run.app
 
+	#tests that the list is not empty
 	def test_get_all_parcels(self):
 		response = self.client.get('v1/parcels')
 
@@ -16,6 +17,7 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertNotEqual(len(data['data']),0)
 
+	#tests that the record that is  of specified id is returned
 	def test_get_one_parcel(self):
 		response = self.client.get('v1/parcels/1')
 
@@ -23,7 +25,7 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':0})
 
-
+	#tests that record returned is belongs to a specified user
 	def test_get_one_parcel_per_user(self):
 		response = self.client.get('v1/users/alice/parcels')
 
@@ -31,6 +33,7 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':0})
 
+	#tests that the value of 'cancled' changes to 1
 	def test_to_cancel_one_parcel(self):
 		self.client.put('v1/parcels/1/cancel')
 		response = self.client.get('v1/parcels/1')
@@ -39,6 +42,7 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':1})
 
+	#tests that a record is created record
 	def test_create_one_parcel(self):
 		#response = self.client.post('v1/parcels')
 		response = self.client.post('v1/parcels',
