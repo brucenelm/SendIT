@@ -29,6 +29,16 @@ def getDeliveryParcelPerUser(version, userid):
 	parcel = [parcels for parcels in list_of_all_deliveries if parcels['userid']==userid]
 	return jsonify({'data':parcel[0]})
 
+#Cancel the specific parcel delivery order
+@app.route('/<version>/parcels/<int:parcelid>/cancel', methods = ['PUT'])
+def cancelDelivereParcel(version, parcelid):
+	try:
+		list_of_all_deliveries[parcelid-1]['canceled'] = 1
+	except IndexError:
+		return jsonify({'error':'Parcel not found'}), 404
+
+	return jsonify({'data':list_of_all_deliveries})
+
 
 
 if __name__ == "__main__":

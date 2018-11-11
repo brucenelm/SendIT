@@ -34,6 +34,14 @@ class TestMainFlask(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':0})
 
+	def test_to_cancel_one_parcel(self):
+		self.client.put('v1/parcels/1/cancel')
+		response = self.client.get('v1/parcels/1')
+
+		data = json.loads(response.data.decode())
+		self.assertEqual(response.status_code, 200)
+		self.assertEqual(data['data'],{'userid':'alice','parcelid':1,'item_name':'Led Screan','canceled':1})
+
 	
 
 if __name__ == '__main__':
