@@ -14,6 +14,15 @@ list_of_all_deliveries =[
 def allParcelDeliveredOrders(version):
 	return jsonify({'data':list_of_all_deliveries})
 
+#Fetches a specific parcel delivery order
+@app.route('/<version>/parcels/<int:parcelid>', methods = ['GET'])
+def getDelivereParcel(version, parcelid):
+	try:
+		parcel = list_of_all_deliveries[parcelid-1]
+	except IndexError:
+		return jsonify({'error':'Parcel not found'}), 404
+	return jsonify({'data':parcel})
+
 
 
 
