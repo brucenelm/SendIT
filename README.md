@@ -19,6 +19,7 @@ Tools used during the development of this API are;
 - Python 2.7.1x+. preferably use Python 3.x.x+
 ## Tests
    $ cd SendIT 
+   
    $ python test.py
 
 ## Running the application
